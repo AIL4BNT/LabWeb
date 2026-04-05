@@ -3,9 +3,6 @@
 let currentSlide = 0;
 let autoSlideInterval;
 
-let currentPiSlide = 0;
-let autoPiInterval;
-
 function initSlider() {
     const images = document.querySelectorAll('.slider-image');
     const dotsContainer = document.getElementById('sliderDots');
@@ -75,18 +72,26 @@ function startAutoSlide() {
 }
 
 function initPiSlider() {
-    const images = document.querySelectorAll('.pi-slider img');
-    if (!images.length) return;
+    const sliders = document.querySelectorAll('.pi-slider');
+    if (!sliders.length) return;
 
-    images.forEach((img, index) => {
-        img.classList.toggle('active', index === 0);
+    // Initialize each profile slider independently
+    sliders.forEach(slider => {
+        const images = slider.querySelectorAll('img');
+        if (!images.length) return;
+        
+        let currentPiSlide = 0;
+        
+        images.forEach((img, index) => {
+            img.classList.toggle('active', index === 0);
+        });
+
+        setInterval(() => {
+            images[currentPiSlide].classList.remove('active');
+            currentPiSlide = (currentPiSlide + 1) % images.length;
+            images[currentPiSlide].classList.add('active');
+        }, 4000);
     });
-
-    autoPiInterval = setInterval(() => {
-        images[currentPiSlide].classList.remove('active');
-        currentPiSlide = (currentPiSlide + 1) % images.length;
-        images[currentPiSlide].classList.add('active');
-    }, 4000);
 }
 
 // Initialize slider when DOM is ready

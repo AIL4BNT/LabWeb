@@ -470,7 +470,7 @@ section {
 
 .about-content h3 {
     color: var(--secondary-color);
-    margin: 1.5rem 0 1rem;
+    margin: 0rem 0 1rem;
     font-size: 1.3rem;
 }
 
@@ -478,6 +478,7 @@ section {
     color: var(--text-light);
     margin-bottom: 1rem;
     line-height: 1.8;
+    text-align: justify;
 }
 
 .stat-box {
@@ -584,14 +585,21 @@ section {
 .research-icon {
     margin-bottom: 1rem;
     transition: transform 0.3s ease;
-    display: inline-block;
+    display: flex; /* Changed from inline-block to flex */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
     animation: iconFloat 3s ease-in-out infinite;
+    width: 200px; /* Fixed width for the image container */
+    height: 150px; /* Fixed height for the image container */
+    overflow: hidden; /* Ensure image stays within bounds */
+    margin-left: auto; /* Center the icon itself within the card */
+    margin-right: auto; /* Center the icon itself within the card */
 }
 
 .research-theme-image {
     width: 100%;
-    max-width: 280px;
-    height: auto;
+    height: 100%; /* Fill the container height */
+    max-width: none; /* Allow the parent container to control max width */
     object-fit: contain;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -736,8 +744,9 @@ section {
 .team-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
     position: relative;
+    margin-top: -0.5rem;
 }
 
 .team-grid::before {
@@ -784,8 +793,8 @@ section {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
-    min-height: 70vh;
-    padding: 1rem;
+    min-height: auto;
+    padding: 1.5rem;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border-radius: 20px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.1);
@@ -862,17 +871,28 @@ section {
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 0.2rem;
+    text-align: justify;
 }
 
 .team-section-header {
     font-size: 2rem;
     font-weight: bold;
     color: #2c3e50;
-    margin-top: 1rem;
-    margin-bottom: 0.8rem;
+    margin-top: 0rem;
+    margin-bottom: 0;
     grid-column: 1 / -1;
     border-bottom: 3px solid var(--primary-color);
     padding-bottom: 0.4rem;
+}
+
+/* Counteract the gap from the .team-grid specifically after section headers */
+.team-section-header + .team-member {
+    margin-top: -1rem;
+}
+
+/* Counteract the gap before section headers to bring them closer to previous members */
+.team-member + .team-section-header {
+    margin-top: -0.5rem;
 }
 
 /* ============= PROJECTS SECTION ============= */
