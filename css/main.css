@@ -700,6 +700,7 @@ section {
     overflow: hidden;
     box-sizing: border-box;
     padding: 0.5rem;
+    isolation: isolate;
 }
 
 #research .research-scope-center {
@@ -739,6 +740,7 @@ section {
     position: absolute;
     left: 50%;
     top: 50%;
+    z-index: 0;
     transform-origin: center;
     transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
     background: #ffffff;
@@ -747,8 +749,8 @@ section {
     padding: 0.22rem 0.7rem;
     border-radius: 999px;
     box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     font-size: 0.36rem;
     line-height: 1.08;
     font-weight: 700;
@@ -756,7 +758,7 @@ section {
     white-space: normal;
     text-align: center;
     max-width: calc(100% - 1.5rem);
-    opacity: 0.78;
+    opacity: 1;
     animation: researchWordOrbit 16s ease-in-out infinite;
     animation-delay: calc(var(--i) * 1s);
 }
@@ -826,26 +828,32 @@ section {
 @keyframes researchWordOrbit {
     0% {
         opacity: 0;
+        z-index: 0;
         transform: translate(-50%, -50%) scale(0.45);
     }
     4% {
-        opacity: 0.9;
+        opacity: 1;
+        z-index: 3;
         transform: translate(-50%, -50%) scale(3.4);
     }
     8% {
-        opacity: 0.9;
+        opacity: 1;
+        z-index: 3;
         transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.18);
     }
     45% {
-        opacity: 0.9;
+        opacity: 1;
+        z-index: 3;
         transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.18);
     }
     60% {
         opacity: 0.18;
+        z-index: 0;
         transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1);
     }
     100% {
         opacity: 0.15;
+        z-index: 0;
         transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1);
     }
 }
