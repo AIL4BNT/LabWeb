@@ -24,7 +24,7 @@
                     <a href="people.html" onclick="togglePeopleDropdown(event)">PEOPLE</a>
                     <div class="dropdown-content" id="peopleNavDropdown">
                         <div class="people-nav-section">
-                            <a href="people.html#pi-section">Principle Investigator</a>
+                            <a href="people.html#pi-section">Principal Investigator</a>
                             <a href="people.html#research-fellows-section">Research Fellows</a>
                             <a href="people.html#doctoral-fellows-section">Doctoral Fellows</a>
                             <a href="people.html#research-interns-section">Research Interns</a>
@@ -47,21 +47,26 @@
         <!-- Image Slider Background -->
         <div class="slider-container">
             <div class="slider-wrapper">
-                <img src="LAB/8.jpg" alt="Lab 8" class="slider-image active">
-                <img src="LAB/9.jpg" alt="Lab 9" class="slider-image">
-                <img src="LAB/1.jpg" alt="Lab 1" class="slider-image">
-                <img src="LAB/2.jpg" alt="Lab 2" class="slider-image">
-                <img src="LAB/3.jpg" alt="Lab 3" class="slider-image">
-                <img src="LAB/4.jpg" alt="Lab 4" class="slider-image">
-                <!-- Convert 5.tif / 6.tif / 7.tif to JPG/PNG and use them here -->
-                 <img src="LAB/23.jpg" alt="Lab 23" class="slider-image">
-                 <img src="LAB/22.jpg" alt="Lab 22" class="slider-image">
-                 <img src="LAB/24.jpg" alt="Lab 24" class="slider-image"> 
-                 <img src="LAB/25.jpg" alt="Lab 25" class="slider-image">               
-                 <img src="LAB/5.jpg" alt="Lab 5" class="slider-image">
-                 <img src="LAB/6.jpg" alt="Lab 6" class="slider-image">
-                 <img src="LAB/7.jpg" alt="Lab 7" class="slider-image">
-                
+                <img src="LAB/8.jpg" alt="Lab 8" class="slider-slide slider-image active">
+                <img src="LAB/9.jpg" alt="Lab 9" class="slider-slide slider-image">
+                <!-- Edit these paired files if you want different combined slides -->
+                <div class="slider-slide slider-slide-split">
+                    <img src="LAB/1.jpg" alt="Lab 1" class="slider-split-image">
+                    <img src="LAB/2.jpg" alt="Lab 2" class="slider-split-image">
+                </div>
+                <div class="slider-slide slider-slide-split">
+                    <img src="LAB/3.jpg" alt="Lab 3" class="slider-split-image">
+                    <img src="LAB/4.jpg" alt="Lab 4" class="slider-split-image">
+                </div>
+                <div class="slider-slide slider-slide-split">
+                    <img src="LAB/5.jpg" alt="Lab 5" class="slider-split-image">
+                    <img src="LAB/6.jpg" alt="Lab 6" class="slider-split-image">
+                </div>
+                <img src="LAB/23.jpg" alt="Lab 23" class="slider-slide slider-image">
+                <img src="LAB/22.jpg" alt="Lab 22" class="slider-slide slider-image">
+                <img src="LAB/24.jpg" alt="Lab 24" class="slider-slide slider-image">
+                <img src="LAB/25.jpg" alt="Lab 25" class="slider-slide slider-image">
+                <img src="LAB/7.jpg" alt="Lab 7" class="slider-slide slider-image">
             </div>
             <div class="slider-controls">
                 <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
@@ -895,11 +900,7 @@
                 <p><strong>Framework for Personalizing Resting-State fMRI Analysis</strong></p>
                 <p>Developed the framework to individualize resting-state fMRI analysis. This approach improves prediction accuracy of behavioral measures from functional connectivity data.</p>
                 <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem;"><em>Referenced in 50+ papers</em></p>
-<<<<<<< HEAD
                 <p style="margin-top: 0.75rem;"><a href="https://github.com/suklamaa/Maximizing_Dissimilarity_in_fMRI" target="_blank" style="color: #1e40af; font-weight: bold;">GitHub →</a></p>
-=======
-                <p style="margin-top: 0.75rem;"><a href="https://github.com/suklamaa/Maximizing_Dissimilarity_in_fMRI" target="_blank" style="color: #1e40af; font-weight: bold;">Github →</a></p>
->>>>>>> 2c464d9f30343cdb21ebd911d010edf2f9df2c7d
             </div>
         </div>
     </section>
@@ -908,7 +909,7 @@
     <section id="people" style="display: none;">
         <h2 class="section-title">People</h2>
         <div class="team-grid">
-            <h3 id="pi-section" class="team-section-header">Principle Investigator</h3>
+            <h3 id="pi-section" class="team-section-header">Principal Investigator</h3>
             <div class="team-member pi-member">
                 <div class="member-info">
                     <div class="member-name">Dr. Rajan Kashyap</div>
@@ -1086,8 +1087,10 @@
             <div class="contact-item">
                 <div class="contact-icon">📧</div>
                 <div class="contact-text">
-                    <h4>Email</h4>
+                    <h4>Lab Email</h4>
                     <p><a href="mailto:ai-lab4bnt@gmail.com" style="color: white;">ai-lab4bnt@gmail.com</a><br>For career inquiries and collaboration requests</p>
+                    <h4>Principal Investigator Email</h4>
+                    <p><a href="mailto:rajankashyap6@gmail.com" style="color: white;">rajankashyap6@gmail.com</a><br>For research inquiries and collaboration requests</p>
                 </div>
             </div>
             <div class="contact-item">
@@ -1141,6 +1144,18 @@
                 <a href="#research-fellows-section">Research Fellows</a>
                 <a href="#doctoral-fellows-section">Doctoral Fellows</a>
                 <a href="#research-interns-section">Research Interns</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; line-height: 1.7;">
+                    <strong>Lab Email:</strong><br>
+                    <a href="mailto:ai-lab4bnt@gmail.com" style="color: white;">ai-lab4bnt@gmail.com</a><br>
+                    <strong>Principal Investigator Email:</strong><br>
+                    <a href="mailto:rajankashyap6@gmail.com" style="color: white;">rajankashyap6@gmail.com</a><br>
+                    <strong>Location:</strong><br>
+                    NIMHANS, Bangalore, India
+                </p>
             </div>
         </div>
         <div class="footer-bottom">

@@ -331,20 +331,41 @@ nav {
     height: 100%;
 }
 
-.slider-image {
+.slider-slide {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    /* Show the entire lab image without cutting, on white */
-    object-fit: contain;
     background: #ffffff;
     opacity: 0;
     transition: opacity 1s ease;
 }
 
-.slider-image.active {
+.slider-slide.active {
     opacity: 1;
+}
+
+.slider-slide img {
+    display: block;
+}
+
+.slider-image {
+    width: 100%;
+    height: 100%;
+    /* Show the entire lab image without cutting, on white */
+    object-fit: contain;
+    background: #ffffff;
+}
+
+.slider-slide-split {
+    display: flex;
+}
+
+.slider-slide-split .slider-split-image {
+    width: 50%;
+    height: 100%;
+    object-fit: contain;
+    background: #ffffff;
 }
 
 .hero-content {
@@ -564,12 +585,15 @@ section {
 /* ============= RESEARCH SECTION ============= */
 #research {
     background: rgba(255, 255, 255, 0.88);
+    max-width: 1400px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
 }
 
 .research-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .research-card {
@@ -588,7 +612,7 @@ section {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(249, 250, 251, 0.98) 100%);
     border: 1px solid rgba(30, 64, 175, 0.12);
     box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
-    padding: 1.25rem;
+    padding: 0.95rem 0.75rem 1rem;
 }
 
 #research .research-card:hover {
@@ -619,10 +643,25 @@ section {
     border-color: rgba(14, 165, 233, 0.28);
 }
 
+#research .research-theme-card[data-theme="diseases"] {
+    background: linear-gradient(180deg, rgba(239, 246, 255, 0.98) 0%, rgba(219, 234, 254, 0.92) 100%);
+    border-color: rgba(59, 130, 246, 0.22);
+}
+
+#research .research-theme-card[data-theme="risk"] {
+    background: linear-gradient(180deg, rgba(254, 242, 242, 0.98) 0%, rgba(254, 202, 202, 0.92) 100%);
+    border-color: rgba(239, 68, 68, 0.22);
+}
+
+#research .research-theme-card[data-theme="personalized"] {
+    background: linear-gradient(180deg, rgba(236, 253, 245, 0.98) 0%, rgba(209, 250, 229, 0.92) 100%);
+    border-color: rgba(16, 185, 129, 0.22);
+}
+
 #research .research-theme-visual {
     width: 100%;
-    height: 220px;
-    margin-bottom: 1rem;
+    height: 320px;
+    margin-bottom: 0.75rem;
     border-radius: 14px;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.92));
@@ -632,9 +671,21 @@ section {
     position: relative;
 }
 
+#research .research-theme-card[data-theme="diseases"] .research-theme-visual {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.96), rgba(15, 23, 42, 0.98));
+}
+
+#research .research-theme-card[data-theme="risk"] .research-theme-visual {
+    background: linear-gradient(135deg, rgba(219, 158, 158, 0.96), rgba(15, 23, 42, 0.98));
+}
+
+#research .research-theme-card[data-theme="personalized"] .research-theme-visual {
+    background: linear-gradient(135deg, rgba(107, 167, 150, 0.96), rgba(15, 23, 42, 0.98));
+}
+
 #research .research-theme-diseases .research-theme-visual {
-    height: 220px;
-    padding: 0.6rem;
+    height: 320px;
+    padding: 0.5rem;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.92));
     align-items: center;
     justify-content: center;
@@ -647,6 +698,8 @@ section {
     height: 100%;
     display: block;
     overflow: hidden;
+    box-sizing: border-box;
+    padding: 0.5rem;
 }
 
 #research .research-scope-center {
@@ -670,8 +723,8 @@ section {
 }
 
 #research .research-scope-center img {
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
     object-fit: contain;
     opacity: 0.28;
     filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.12));
@@ -688,21 +741,23 @@ section {
     top: 50%;
     transform-origin: center;
     transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    color: #0f172a;
-    padding: 0.24rem 0.46rem;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    color: #020617;
+    padding: 0.22rem 0.7rem;
     border-radius: 999px;
     box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    font-size: 0.46rem;
-    line-height: 1;
+    font-size: 0.36rem;
+    line-height: 1.08;
     font-weight: 700;
     letter-spacing: 0.02em;
-    white-space: nowrap;
-    opacity: 0;
-    animation: researchWordOrbit 20s linear infinite;
+    white-space: normal;
+    text-align: center;
+    max-width: calc(100% - 1.5rem);
+    opacity: 0.78;
+    animation: researchWordOrbit 16s ease-in-out infinite;
     animation-delay: calc(var(--i) * 1s);
 }
 
@@ -715,7 +770,7 @@ section {
     height: 110px;
     padding: 0.2rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 10px 18px rgba(15, 23, 42, 0.1);
 }
 
@@ -728,33 +783,33 @@ section {
 }
 
 #research .word-angle-1 { --angle: -165deg; --radius: 98px; }
-#research .word-angle-2 { --angle: -138deg; --radius: 102px; }
-#research .word-angle-3 { --angle: -112deg; --radius: 108px; }
-#research .word-angle-4 { --angle: -86deg; --radius: 100px; }
-#research .word-angle-5 { --angle: -60deg; --radius: 106px; }
-#research .word-angle-6 { --angle: -34deg; --radius: 110px; }
-#research .word-angle-7 { --angle: -8deg; --radius: 103px; }
-#research .word-angle-8 { --angle: 18deg; --radius: 106px; }
-#research .word-angle-9 { --angle: 44deg; --radius: 110px; }
-#research .word-angle-10 { --angle: 70deg; --radius: 104px; }
-#research .word-angle-11 { --angle: 96deg; --radius: 108px; }
-#research .word-angle-12 { --angle: 122deg; --radius: 106px; }
+#research .word-angle-2 { --angle: -138deg; --radius: 70px; }
+#research .word-angle-3 { --angle: -112deg; --radius: 104px; }
+#research .word-angle-4 { --angle: -86deg; --radius: 66px; }
+#research .word-angle-5 { --angle: -60deg; --radius: 92px; }
+#research .word-angle-6 { --angle: -34deg; --radius: 58px; }
+#research .word-angle-7 { --angle: -8deg; --radius: 108px; }
+#research .word-angle-8 { --angle: 18deg; --radius: 76px; }
+#research .word-angle-9 { --angle: 44deg; --radius: 112px; }
+#research .word-angle-10 { --angle: 70deg; --radius: 62px; }
+#research .word-angle-11 { --angle: 96deg; --radius: 96px; }
+#research .word-angle-12 { --angle: 122deg; --radius: 82px; }
 #research .word-angle-13 { --angle: 148deg; --radius: 110px; }
-#research .word-angle-14 { --angle: 174deg; --radius: 102px; }
-#research .word-angle-15 { --angle: -178deg; --radius: 78px; }
-#research .word-angle-16 { --angle: -140deg; --radius: 82px; }
-#research .word-angle-17 { --angle: -102deg; --radius: 80px; }
-#research .word-angle-18 { --angle: -64deg; --radius: 84px; }
-#research .word-angle-19 { --angle: -26deg; --radius: 78px; }
-#research .word-angle-20 { --angle: 12deg; --radius: 82px; }
-#research .word-angle-21 { --angle: 50deg; --radius: 80px; }
-#research .word-angle-22 { --angle: 88deg; --radius: 84px; }
-#research .word-angle-23 { --angle: 126deg; --radius: 78px; }
-#research .word-angle-24 { --angle: 164deg; --radius: 82px; }
-#research .word-angle-25 { --angle: -150deg; --radius: 64px; }
-#research .word-angle-26 { --angle: -90deg; --radius: 66px; }
-#research .word-angle-27 { --angle: -30deg; --radius: 64px; }
-#research .word-angle-28 { --angle: 30deg; --radius: 66px; }
+#research .word-angle-14 { --angle: 174deg; --radius: 70px; }
+#research .word-angle-15 { --angle: -178deg; --radius: 84px; }
+#research .word-angle-16 { --angle: -140deg; --radius: 60px; }
+#research .word-angle-17 { --angle: -102deg; --radius: 100px; }
+#research .word-angle-18 { --angle: -64deg; --radius: 72px; }
+#research .word-angle-19 { --angle: -26deg; --radius: 88px; }
+#research .word-angle-20 { --angle: 12deg; --radius: 64px; }
+#research .word-angle-21 { --angle: 50deg; --radius: 106px; }
+#research .word-angle-22 { --angle: 88deg; --radius: 78px; }
+#research .word-angle-23 { --angle: 126deg; --radius: 94px; }
+#research .word-angle-24 { --angle: 164deg; --radius: 62px; }
+#research .word-angle-25 { --angle: -150deg; --radius: 86px; }
+#research .word-angle-26 { --angle: -90deg; --radius: 54px; }
+#research .word-angle-27 { --angle: -30deg; --radius: 98px; }
+#research .word-angle-28 { --angle: 30deg; --radius: 68px; }
 
 #research .word-size-small {
     font-size: 0.42rem;
@@ -771,27 +826,27 @@ section {
 @keyframes researchWordOrbit {
     0% {
         opacity: 0;
-        transform: translate(-50%, -50%) scale(0.35);
+        transform: translate(-50%, -50%) scale(0.45);
+    }
+    4% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) scale(3.4);
     }
     8% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(3.2);
+        opacity: 0.9;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.18);
     }
-    18% {
-        opacity: 1;
+    45% {
+        opacity: 0.9;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.18);
+    }
+    60% {
+        opacity: 0.18;
         transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1);
-    }
-    68% {
-        opacity: 1;
-        transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1);
-    }
-    90% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.9);
     }
     100% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.35);
+        opacity: 0.15;
+        transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1);
     }
 }
 
@@ -951,8 +1006,8 @@ section {
 }
 
 #research .research-theme-risk .research-theme-visual {
-    background: radial-gradient(circle at center, rgba(103, 232, 249, 0.12), rgba(15, 23, 42, 0.98) 56%, rgba(2, 6, 23, 1) 100%);
-    box-shadow: inset 0 0 0 1px rgba(103, 232, 249, 0.15), 0 0 30px rgba(103, 232, 249, 0.06);
+    background: radial-gradient(circle at center, rgba(248, 113, 113, 0.12), rgba(15, 23, 42, 0.98) 56%, rgba(2, 6, 23, 1) 100%);
+    box-shadow: inset 0 0 0 1px rgba(248, 113, 113, 0.15), 0 0 30px rgba(248, 113, 113, 0.06);
 }
 
 #research .research-theme-brain .research-theme-visual {
@@ -1075,7 +1130,7 @@ section {
 }
 
 #research .research-theme-personalized .research-theme-visual {
-    background: radial-gradient(circle at top, rgba(14, 165, 233, 0.16), rgba(15, 23, 42, 0.98) 52%, rgba(2, 6, 23, 1) 100%);
+    background: radial-gradient(circle at top, rgba(16, 185, 129, 0.16), rgba(15, 23, 42, 0.98) 52%, rgba(2, 6, 23, 1) 100%);
 }
 
 #research .research-theme-personalized .research-theme-visual::before {
@@ -1083,8 +1138,8 @@ section {
     position: absolute;
     inset: 14px;
     border-radius: 12px;
-    border: 1px solid rgba(14, 165, 233, 0.28);
-    box-shadow: 0 0 18px rgba(14, 165, 233, 0.18), inset 0 0 22px rgba(14, 165, 233, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.28);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.18), inset 0 0 22px rgba(16, 185, 129, 0.08);
     animation: researchFramePulse 4.2s ease-in-out infinite;
     pointer-events: none;
 }
@@ -1100,48 +1155,75 @@ section {
 }
 
 #research .research-theme-card > h3 {
-    color: #0f2f8f;
+    color: #12389e;
     font-weight: 800;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35rem;
-    padding: 0.8rem 1.15rem;
+    display: block;
+    padding: 0.55rem 0.8rem 0.6rem;
     margin: 0.35rem auto 0;
-    max-width: 92%;
-    border-radius: 18px;
-    border: 1.5px solid rgba(37, 99, 235, 0.34);
-    background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(219, 234, 254, 0.92)),
-        linear-gradient(135deg, rgba(59, 130, 246, 0.14), rgba(37, 99, 235, 0.02));
-    box-shadow:
-        0 14px 30px rgba(30, 64, 175, 0.16),
-        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    max-width: 96%;
+    border-radius: 14px;
+    border: 1px solid rgba(37, 99, 235, 0.24);
+    border-left: 4px solid #2563eb;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(239, 246, 255, 0.94));
+    box-shadow: 0 10px 22px rgba(30, 64, 175, 0.1);
     text-decoration: none;
     cursor: pointer;
     text-align: center;
     line-height: 1.25;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     transition: color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
+#research .research-theme-card[data-theme="diseases"] > h3 {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.24);
+    border-left-color: #2563eb;
+    background: linear-gradient(135deg, rgba(239, 246, 255, 1), rgba(219, 234, 254, 0.96));
+}
+
+#research .research-theme-card[data-theme="risk"] > h3 {
+    color: #b91c1c;
+    border-color: rgba(239, 68, 68, 0.22);
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(254, 226, 226, 0.96));
+}
+
+#research .research-theme-card[data-theme="personalized"] > h3 {
+    color: #047857;
+    border-color: rgba(16, 185, 129, 0.22);
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, rgba(236, 253, 245, 1), rgba(209, 250, 229, 0.96));
+}
+
 #research .research-theme-card > h3::after {
-    content: " →";
+    content: "  »";
     font-weight: 700;
+    color: #2563eb;
 }
 
 #research .research-theme-card:hover > h3,
 #research .research-theme-card:focus-within > h3 {
-    color: #0b2f99;
-    transform: translateY(-2px) scale(1.01);
-    border-color: rgba(37, 99, 235, 0.66);
-    background:
-        linear-gradient(135deg, rgba(239, 246, 255, 1), rgba(191, 219, 254, 0.98)),
-        linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(37, 99, 235, 0.04));
-    box-shadow:
-        0 18px 38px rgba(30, 64, 175, 0.22),
-        0 0 0 4px rgba(96, 165, 250, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    color: #0d2f86;
+    transform: translateY(-1px);
+    border-color: rgba(37, 99, 235, 0.38);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(224, 242, 254, 0.96));
+    box-shadow: 0 14px 28px rgba(30, 64, 175, 0.16);
+}
+
+#research .research-theme-card[data-theme="risk"]:hover > h3,
+#research .research-theme-card[data-theme="risk"]:focus-within > h3 {
+    color: #991b1b;
+    border-color: rgba(239, 68, 68, 0.38);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(254, 226, 226, 0.96));
+    box-shadow: 0 14px 28px rgba(239, 68, 68, 0.16);
+}
+
+#research .research-theme-card[data-theme="personalized"]:hover > h3,
+#research .research-theme-card[data-theme="personalized"]:focus-within > h3 {
+    color: #065f46;
+    border-color: rgba(16, 185, 129, 0.38);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(209, 250, 229, 0.96));
+    box-shadow: 0 14px 28px rgba(16, 185, 129, 0.16);
 }
 
 #research .research-card p {
@@ -1149,7 +1231,7 @@ section {
 }
 
 #research .research-theme-detail {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     display: block;
     position: relative;
     z-index: 1;
@@ -1160,7 +1242,7 @@ section {
     border: 1px solid rgba(30, 64, 175, 0.12);
     border-radius: 18px;
     box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
-    padding: 1.25rem 1.3rem;
+    padding: 1rem 1.05rem;
 }
 
 #research .research-theme-detail-kicker {
@@ -1173,8 +1255,40 @@ section {
 }
 
 #research .research-theme-detail-main h3 {
-    margin-bottom: 0.75rem;
-    font-size: 1.32rem;
+    color: #12389e;
+    display: inline-block;
+    margin: 0.2rem 0 0.9rem;
+    padding: 0.6rem 0.95rem 0.68rem;
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(37, 99, 235, 0.22);
+    border-left: 4px solid #2563eb;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.98), rgba(239, 246, 255, 0.94));
+    box-shadow: 0 10px 22px rgba(30, 64, 175, 0.1);
+    font-size: 1.28rem;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+#research .research-theme-detail[data-theme="diseases"] .research-theme-detail-main h3 {
+    color: #1d4ed8;
+    border-color: rgba(37, 99, 235, 0.22);
+    border-left-color: #2563eb;
+    background: linear-gradient(135deg, rgba(239, 246, 255, 1), rgba(219, 234, 254, 0.96));
+}
+
+#research .research-theme-detail[data-theme="risk"] .research-theme-detail-main h3 {
+    color: #b91c1c;
+    border-color: rgba(239, 68, 68, 0.22);
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(254, 226, 226, 0.96));
+}
+
+#research .research-theme-detail[data-theme="personalized"] .research-theme-detail-main h3 {
+    color: #047857;
+    border-color: rgba(16, 185, 129, 0.22);
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, rgba(236, 253, 245, 1), rgba(209, 250, 229, 0.96));
 }
 
 #research .research-theme-detail-main p {

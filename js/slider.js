@@ -4,16 +4,20 @@ let currentSlide = 0;
 let autoSlideInterval;
 
 function initSlider() {
-    const images = document.querySelectorAll('.slider-image');
+    const slides = document.querySelectorAll('.slider-slide');
     const dotsContainer = document.getElementById('sliderDots');
     initPiSlider();
 
-    if (!images.length || !dotsContainer) {
+    if (!slides.length || !dotsContainer) {
         return;
     }
+
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === 0);
+    });
     
     // Create dots for each image
-    images.forEach((_, index) => {
+    slides.forEach((_, index) => {
         const dot = document.createElement('div');
         dot.className = 'slider-dot' + (index === 0 ? ' active' : '');
         dot.onclick = () => goToSlide(index);
@@ -25,24 +29,32 @@ function initSlider() {
 }
 
 function changeSlide(direction) {
-    const images = document.querySelectorAll('.slider-image');
+    const slides = document.querySelectorAll('.slider-slide');
     const dots = document.querySelectorAll('.slider-dot');
+
+    if (!slides.length) {
+        return;
+    }
     
     // Remove active class from current slide and dot
-    images[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
+    slides[currentSlide].classList.remove('active');
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.remove('active');
+    }
     
     // Update current slide index
     currentSlide += direction;
-    if (currentSlide >= images.length) {
+    if (currentSlide >= slides.length) {
         currentSlide = 0;
     } else if (currentSlide < 0) {
-        currentSlide = images.length - 1;
+        currentSlide = slides.length - 1;
     }
     
     // Add active class to new slide and dot
-    images[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+    slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+    }
     
     // Reset auto-slide timer
     clearInterval(autoSlideInterval);
@@ -50,19 +62,23 @@ function changeSlide(direction) {
 }
 
 function goToSlide(index) {
-    const images = document.querySelectorAll('.slider-image');
+    const slides = document.querySelectorAll('.slider-slide');
     const dots = document.querySelectorAll('.slider-dot');
     
     if (index === currentSlide) return;
     
     // Remove active class from current slide and dot
-    images[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
+    slides[currentSlide].classList.remove('active');
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.remove('active');
+    }
     
     // Set to new slide
     currentSlide = index;
-    images[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+    slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) {
+        dots[currentSlide].classList.add('active');
+    }
     
     // Reset auto-slide timer
     clearInterval(autoSlideInterval);
