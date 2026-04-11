@@ -15,7 +15,7 @@ function setResearchThemeDetail(theme, activeCard) {
 
     const themes = {
         diseases: {
-            title: 'Brain Disorders- Where Heterogeneity is the Lock and AI is the Key.',
+            title: 'Brain Disorders- Where Heterogeneity is the Lock and AI is the Key',
             paragraphs: [
                 'Neuropsychiatric disorders are inherently heterogeneous, often presenting as overlapping syndromes driven by multiple risk factors, biological variants, and interacting pathophysiological processes. For example, depression may co-occur with frontotemporal dementia, which itself spans diverse clinical variants including behavioural, semantic, agrammatic, logopenic, and motor forms. This complexity poses significant challenges for accurate diagnosis and the development of targeted therapies.',
                 'Emerging evidence suggests that the brain\'s network architecture holds critical insights into this heterogeneity. At AI4BNT, we develop linear and nonlinear mathematical models, along with statistically explainable AI frameworks, to identify network-based biomarkers from multimodal brain MRI data.'
@@ -54,7 +54,8 @@ function setResearchThemeDetail(theme, activeCard) {
             paragraphs: [
                 'Non-invasive brain stimulation techniques, such as Transcranial Direct Current Stimulation (tDCS) and Transcranial Magnetic Stimulation (TMS), are emerging as promising tools for treating neuropsychiatric disorders. However, current approaches often rely on standardized anatomical targets and fixed stimulation parameters, overlooking individual variability in brain connectivity and clinical presentation.',
                 'At AI4BNT, we address this gap through computational modeling and personalized approaches. Using techniques such as the finite element method, we simulate electric field propagation in the brain and integrate these models with advanced mathematical frameworks to tailor stimulation parameters to an individual\'s brain anatomy.',
-                'Our group has developed four open-source toolboxes that enable MRI-based personalization of tDCS parameters. These tools have been experimentally validated, demonstrating the feasibility and effectiveness of individualized stimulation strategies. To the best of our knowledge, this is among the first efforts to personalize tDCS current dosing and demonstrate its therapeutic potential.'
+                'Our group has developed four open-source toolboxes that enable MRI-based personalization of tDCS parameters. These tools have been experimentally validated, demonstrating the feasibility and effectiveness of individualized stimulation strategies. To the best of our knowledge, this is among the first efforts to personalize tDCS current dosing and demonstrate its therapeutic potential.',
+                'Our lab collaborates with <a class="person-highlight" href="https://github.com/CN-PN/LabWeb.git" target="_blank" rel="noopener noreferrer">Dr. Sagarika Bhattacharjee (MBBS, MD, PhD)</a> to advance these clinical applications and translate them toward patient care through personalized neuromodulation, clinically informed modeling, and translational research partnerships.'
             ],
             closing: 'Selected publications on personalised treatment are listed below.',
             publications: [
@@ -84,6 +85,9 @@ function setResearchThemeDetail(theme, activeCard) {
     ].join('');
     detail.dataset.theme = theme;
     detail.classList.add('is-visible');
+    detail.style.animation = 'none';
+    void detail.offsetWidth;
+    detail.style.animation = 'researchThemePop 180ms ease-out';
 }
 
 // Intersection Observer for scroll animations
