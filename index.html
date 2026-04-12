@@ -47,24 +47,23 @@
         <!-- Image Slider Background -->
         <div class="slider-container">
             <div class="slider-wrapper">
-                <img src="LAB/8.jpg" alt="Lab 8" class="slider-slide slider-image active">
-                <img src="LAB/9.jpg" alt="Lab 9" class="slider-slide slider-image">
+                <img src="LAB/8.jpg" alt="Lab 8" class="slider-slide slider-image active" data-story="story">
                 <!-- Edit these grouped files if you want different combined slides -->
-                <div class="slider-slide slider-slide-split">
+                <div class="slider-slide slider-slide-split" data-story="algorithm">
                     <img src="LAB/3.jpg" alt="Lab 3" class="slider-split-image">
                     <img src="LAB/1.jpg" alt="Lab 1" class="slider-split-image">
                     <img src="LAB/2.jpg" alt="Lab 2" class="slider-split-image">
                 </div>
-                <div class="slider-slide slider-slide-split">
+                <div class="slider-slide slider-slide-split" data-story="algorithm">
                     <img src="LAB/4.jpg" alt="Lab 4" class="slider-split-image">
                     <img src="LAB/5.jpg" alt="Lab 5" class="slider-split-image">
                     <img src="LAB/6.jpg" alt="Lab 6" class="slider-split-image">
                 </div>
-                <img src="LAB/23.jpg" alt="Lab 23" class="slider-slide slider-image">
-                <img src="LAB/22.jpg" alt="Lab 22" class="slider-slide slider-image">
-                <img src="LAB/24.jpg" alt="Lab 24" class="slider-slide slider-image">
-                <img src="LAB/25.jpg" alt="Lab 25" class="slider-slide slider-image">
-                <img src="LAB/7.jpg" alt="Lab 7" class="slider-slide slider-image">
+                <img src="LAB/22.jpg" alt="Lab 22" class="slider-slide slider-image" data-story="application">
+                <img src="LAB/23.jpg" alt="Lab 23" class="slider-slide slider-image" data-story="application">
+                <img src="LAB/24.jpg" alt="Lab 24" class="slider-slide slider-image" data-story="application">
+                <img src="LAB/25.jpg" alt="Lab 25" class="slider-slide slider-image" data-story="application">
+                <img src="LAB/9.jpg" alt="Lab 9" class="slider-slide slider-image" data-story="industry">
             </div>
             <div class="slider-controls">
                 <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
@@ -85,6 +84,12 @@
                 <button class="btn btn-secondary" onclick="window.location.href='contact.html'">Get In Touch</button>
             </div>
         </div>
+    </section>
+
+    <section class="storyline-strip" aria-label="Our story from algorithm to application to industry">
+        <p>
+            <span class="story-word" data-story-word="story">Our story</span> from <span class="story-word" data-story-word="algorithm">algorithm</span> to <span class="story-word" data-story-word="application">application</span> to <span class="story-word" data-story-word="industry">industry</span>
+        </p>
     </section>
 
     <!-- Home long text (Research context) -->
@@ -378,7 +383,7 @@
             </div>
             <div class="research-card">
                 <h3>Personalised Medicine - Treatment Tailored to You</h3>
-                <p>One size doesn't fit all. We create customized brain stimulation treatments using your unique brain data for better results. Our collaboration with labs and leading hospitals helps deliver this to patients.</p>
+                <p>One size doesn't fit all. We create customized brain stimulation treatments using your unique brain data for better results. We collaborate with labs and leading hospitals to deliver this to patients.</p>
             </div>
         </div>
 
@@ -422,7 +427,7 @@
             <p>Non-invasive brain stimulation techniques, such as Transcranial Direct Current Stimulation (tDCS) and Transcranial Magnetic Stimulation (TMS), are emerging as promising tools for treating neuropsychiatric disorders. However, current approaches often rely on standardized anatomical targets and fixed stimulation parameters, overlooking individual variability in brain connectivity and clinical presentation.</p>
             <p>At AI4BNT, we address this gap through computational modeling and personalized approaches. Using techniques such as the finite element method, we simulate electric field propagation in the brain and integrate these models with advanced mathematical frameworks to tailor stimulation parameters to an individual's brain anatomy.</p>
             <p>Our group has developed four open-source toolboxes that enable MRI-based personalization of tDCS parameters. These tools have been experimentally validated, demonstrating the feasibility and effectiveness of individualized stimulation strategies. To the best of our knowledge, this is among the first efforts to personalize tDCS current dosing and demonstrate its therapeutic potential.</p>
-            <p>Our lab collaborates with <a class="person-highlight" href="https://github.com/CN-PN/LabWeb.git" target="_blank" rel="noopener noreferrer">Dr. Sagarika Bhattacharjee (MBBS, MD, PhD)</a> to advance these clinical applications and translate them toward patient care through personalized neuromodulation, clinically informed modeling, and translational research partnerships.</p>
+            <p>Our lab collaborates with Dr. Sagarika Bhattacharjee (MBBS, MD, PhD), <a href="https://github.com/CN-PN/LabWeb.git" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline; text-underline-offset: 2px;">Clinical Neurophysiology &amp; Precision Neuromodulation Lab</a> to advance these clinical applications and translate them toward patient care through personalized neuromodulation, clinically informed modeling, and translational research partnerships.</p>
             <p><strong>Toolboxes are available via the software section, and some of our ongoing work is highlighted below:</strong></p>
             <ol>
                 <li>Kashyap, R., Bhattacharjee, S., Desmond, J.E., Rapp, B., Oishi, K., Chen, S.A. (2019). Simulation analyses of tDCS montages for the investigation of dorsal and ventral pathways. <em>Scientific Reports</em>, 9(1), 1-17.</li>
@@ -1119,38 +1124,6 @@
     </div>
 </section>
     
-
-    <!-- Footer -->
-<footer>
-    <div class="footer-content">
-        <div class="footer-section footer-brand">
-            <img src="LAB/AI4BNT.png" alt="AI4BNT Logo" class="footer-logo">
-            <div class="footer-brand-copy">
-                <h4 class="footer-title">AI for Brain Network Therapeutics</h4>
-                <p>Department of Neurointervention and Neuro Radiology</p>
-                <p>NIMHANS, Bengaluru 560029, India</p>
-                <p><a href="mailto:ai-lab4bnt@gmail.com">ai-lab4bnt@gmail.com</a></p>
-                <p><a href="contact.html">Contact</a></p>
-            </div>
-        </div>
-        <div class="footer-section footer-links-section">
-            <h4>Quick Links</h4>
-            <div class="footer-links-grid">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="career.html">Career</a>
-                <a href="research.html">Research</a>
-                <a href="publications.html">Publications</a>
-                <a href="software.html">Software</a>
-                <a href="people.html">People</a>
-                <a href="news.html">News</a>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2024 AI4BNT. All rights reserved.</p>
-    </div>
-</footer>
 
     <!-- Back to Top Button -->
     <button class="scroll-to-top" id="scrollTopBtn" onclick="scrollToTop()"></button>

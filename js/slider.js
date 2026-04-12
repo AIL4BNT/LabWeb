@@ -3,6 +3,21 @@
 let currentSlide = 0;
 let autoSlideInterval;
 
+function updateStoryGlow(slideIndex) {
+    const slides = document.querySelectorAll('.slider-slide');
+    const storyWords = document.querySelectorAll('.story-word');
+
+    if (!slides.length || !storyWords.length) {
+        return;
+    }
+
+    const activeStory = slides[slideIndex]?.dataset.story;
+
+    storyWords.forEach(word => {
+        word.classList.toggle('active', word.dataset.storyWord === activeStory);
+    });
+}
+
 function initSlider() {
     const slides = document.querySelectorAll('.slider-slide');
     const dotsContainer = document.getElementById('sliderDots');
@@ -15,6 +30,7 @@ function initSlider() {
     slides.forEach((slide, index) => {
         slide.classList.toggle('active', index === 0);
     });
+    updateStoryGlow(0);
     
     // Create dots for each image
     slides.forEach((_, index) => {
@@ -55,6 +71,7 @@ function changeSlide(direction) {
     if (dots[currentSlide]) {
         dots[currentSlide].classList.add('active');
     }
+    updateStoryGlow(currentSlide);
     
     // Reset auto-slide timer
     clearInterval(autoSlideInterval);
@@ -79,6 +96,7 @@ function goToSlide(index) {
     if (dots[currentSlide]) {
         dots[currentSlide].classList.add('active');
     }
+    updateStoryGlow(currentSlide);
     
     // Reset auto-slide timer
     clearInterval(autoSlideInterval);
